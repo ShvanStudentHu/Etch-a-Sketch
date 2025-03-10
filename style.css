@@ -12,3 +12,11 @@ body {
 .containerAllContent {
   order: 2;
 }
+
+div.single-square:hover {
+  background-color: #5b5b5b;
+}
+
+.coloredDiv {
+  background-color: black;
+}

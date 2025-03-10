@@ -1,5 +1,6 @@
 const square = document.createElement("div");
 const fullPageContainer = document.querySelector(".containerAllContent");
+const oneSquare = document.querySelector(".single-square");
 
 const fullPageLayout = (containerSize) => {
   fullPageContainer.setAttribute(
@@ -39,4 +40,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let containerSize = 520;
   fullPageLayout(containerSize);
   userPrompt();
+});
+
+fullPageContainer.addEventListener("mouseover", (oneSquare) => {
+  let divId = oneSquare.target.id;
+  console.log(oneSquare.target.id);
+  if (isMousePressed == true) {
+    document.getElementById(divId).style.backgroundColor = "black";
+  }
+});
+
+fullPageContainer.addEventListener("click", () => {
+  isMousePressed = false;
+});
+
+let isMousePressed = false;
+
+fullPageContainer.addEventListener("mousedown", (oneSquare) => {
+  isMousePressed = true;
+  let divId = oneSquare.target.id;
+  document.getElementById(divId).style.background = "red";
+});
+
+fullPageContainer.addEventListener("mouseup", () => {
+  isMousePressed = false;
 });
