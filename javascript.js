@@ -20,9 +20,10 @@ const printGrid = (n) => {
     const newSquare = square.cloneNode(true);
     fullPageContainer.append(newSquare);
     newSquare.classList.toggle("single-square");
+    newSquare.setAttribute("id", `${i}`);
     newSquare.setAttribute(
       "style",
-      `display: flex; border: solid 1px black; min-width: ${squareSize}px; max-width: ${squareSize}px; min-height: ${squareSize}px; max-height:${squareSize}px; box-sizing: border-box`
+      `display: flex; border: solid 1px black; min-width: ${squareSize}px; max-width: ${squareSize}px; min-height: ${squareSize}px; max-height:${squareSize}px; box-sizing: border-box;`
     );
     i++;
   }
@@ -31,7 +32,6 @@ const printGrid = (n) => {
 const calculateSquareSize = (nOfSquares) => {
   let containerSize = 520;
   let squareSize = containerSize / nOfSquares;
-  console.log(squareSize);
   return squareSize;
 };
 
