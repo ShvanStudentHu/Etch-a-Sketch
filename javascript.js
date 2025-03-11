@@ -1,11 +1,12 @@
 const square = document.createElement("div");
 const fullPageContainer = document.querySelector(".containerAllContent");
 const oneSquare = document.querySelector(".single-square");
+const clearButton = document.querySelector("#clearButton");
 
 const fullPageLayout = (containerSize) => {
   fullPageContainer.setAttribute(
     "style",
-    `display:flex; flex-wrap: wrap; align-content: flex-start; max-width: ${containerSize}px; min-height: ${containerSize}px; max-height: ${containerSize}px;`
+    `display:flex; flex-wrap: wrap; align-content: flex-start; max-width: ${containerSize}px; max-height: ${containerSize}px;`
   );
 };
 
@@ -65,3 +66,26 @@ fullPageContainer.addEventListener("mousedown", (oneSquare) => {
 fullPageContainer.addEventListener("mouseup", () => {
   isMousePressed = false;
 });
+
+clearButton.addEventListener("click", () => {
+  const allSquares = document.querySelectorAll(".single-square");
+
+  allSquares.forEach((square) => {
+    square.style.backgroundColor = "white";
+  });
+});
+
+const randomRgbValue = () => {
+  let i = 0;
+  let randomColor = "";
+
+  while (i < 3) {
+    randomRGB = Math.floor(Math.random() * 255)
+      .toString(16)
+      .padStart(2, "0");
+    randomColor = randomRGB + randomColor;
+    i++;
+  }
+  let newColor = "#" + randomColor;
+  return newColor;
+};
